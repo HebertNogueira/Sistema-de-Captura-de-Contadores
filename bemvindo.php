@@ -1,0 +1,1 @@
+<h4>Sistema desenvolvido em PHP para consulta e armazenamento de contadores via SNMP.</h4>
