@@ -1,6 +1,8 @@
 # Sistema-de-Captura-de-Contadores
 Sistema desenvolvido em PHP para consulta e armazenamento de contadores via SNMP.
 
+
+
 __Ambiente de codificação__
 
 * Debian 9.8
