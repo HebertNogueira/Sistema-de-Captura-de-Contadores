@@ -1,4 +1,4 @@
-		<form action="cadastro.php" method="post">
+	<form action="index.php?action=cadastro" method="post">
 		<h3>Cadastrar Impressora</h3>
 		<TABLE BORDER=0 CELLSPACING=0>
 			<tr>
@@ -37,13 +37,13 @@
 			
 		<?php $manter = new manter(); if ($manter->selectImpressoras()) while ($row = $result->fetch_assoc()) { ?>
 		
-		<form action="cadastro.php?codigoGet=<?=$row['idEquipamento_pk']; ?>&changed=<?=$row['idEquipamento_pk']; ?>" method="post">	
+		<form action="index.php?action=cadastro&codigoGet=<?=$row['idEquipamento_pk']; ?>&changed=<?=$row['idEquipamento_pk']; ?>" method="post">	
 			<tr>
 				<td align='center'>
-					<input type="text" name="nome" style="width: 200" value="<?php echo $row['equipNome']; ?>"/>
+					<input type="text" name="nome" style="width: 200" value="<?=$row['equipNome']; ?>"/>
 				</td>
 				<td align='center'>
-					<input type="text" name="ip" style="width: 200" value="<?php echo $row['equipIP']; ?>"/>
+					<input type="text" name="ip" style="width: 200" value="<?=$row['equipIP']; ?>"/>
 				</td>
 				<td align='center'>
 					<button type="submit" name="acao" class="button" value="alterar"><span>Alterar</span></button>
