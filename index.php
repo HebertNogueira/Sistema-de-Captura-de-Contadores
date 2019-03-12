@@ -1,7 +1,7 @@
 <?php include 'includes/includes.php'; ?>
 <html>
 	<head>
-		<title>IMPRESSORAS</title>
+		<title>~IMPRESSORAS</title>
 	</head>
 	
 	<body>	
