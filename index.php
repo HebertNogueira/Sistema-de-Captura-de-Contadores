@@ -14,7 +14,7 @@
 				<button type="submit" name="action" value="cadastro" class="button"><span>Cadastrar Impressoras</span></button>
 			</td>
 			<td>
-				<button type="submit" name="action" value="visualiza_cont" class="button" value ><span>Visualizar Contadores</span></button>
+				<button type="submit" name="action" value="visualiza_cont" class="button"><span>Visualizar Contadores</span></button>
 			</td>
 			<td>
 				<button type="submit" name="action" value="salva_cont" class="button"><span>Salvar Contadores</span></button>
