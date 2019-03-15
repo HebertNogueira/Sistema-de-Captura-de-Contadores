@@ -35,15 +35,15 @@
 				</td>
 			</tr>
 			
-		<?php $manter = new manter(); if ($manter->selectImpressoras()) while ($row = $result1->fetch_assoc()) { ?>
+		<?php $manter = new manter(); if ($manter->selectImpressoras()) while ($linhasSelectImpressoras = $resultImpressoras->fetch_assoc()) { ?>
 		
-		<form action="index.php?action=cadastro&codigoGet=<?=$row['idEquipamento_pk']; ?>&changed=<?=$row['idEquipamento_pk']; ?>" method="post">	
+		<form action="index.php?action=cadastro&codigoGet=<?=$linhasSelectImpressoras['idEquipamento_pk']; ?>&changed=<?=$linhasSelectImpressoras['idEquipamento_pk']; ?>" method="post">	
 			<tr>
 				<td align='center'>
-					<input type="text" name="nome" style="width: 200" value="<?=$row['equipNome']; ?>"/>
+					<input type="text" name="nome" style="width: 200" value="<?=$linhasSelectImpressoras['equipNome']; ?>"/>
 				</td>
 				<td align='center'>
-					<input type="text" name="ip" style="width: 200" value="<?=$row['equipIP']; ?>"/>
+					<input type="text" name="ip" style="width: 200" value="<?=$linhasSelectImpressoras['equipIP']; ?>"/>
 				</td>
 				<td align='center'>
 					<button type="submit" name="acao" class="button" value="alterar"><span>Alterar</span></button>
@@ -53,5 +53,5 @@
 				</td>
 			</tr>
 		</form>
-		<?php } $result1->close(); $mysqli->close();	?>
+		<?php } $resultImpressoras->close(); $mysqli->close();	?>
 		</table>

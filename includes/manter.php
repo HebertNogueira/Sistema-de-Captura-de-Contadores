@@ -19,7 +19,6 @@
 	class manter {
 		function updateImpressoras(){
 			global $mysqli;
-			$mysqli=null;
 			$connect = new connect();
 			$connect->connecting();			
 			$codigoGet = $_GET['codigoGet'];
@@ -43,7 +42,6 @@
 		
 		function insertImpressoras(){
 			global $mysqli;
-			$mysqli=null;
 			$connect = new connect();
 			$connect->connecting();	
 			$ip = $_POST['ip'];
@@ -65,7 +63,6 @@
 		
 		function deleteImpressoras(){
 			global $mysqli;
-			$mysqli=null;
 			$connect = new connect();
 			$connect->connecting();
 			$codigoGet = $_GET['codigoGet'];
@@ -86,52 +83,43 @@
 		}
 		
 		function selectImpressoras(){
+			global $resultImpressoras;
 			global $mysqli;
-			$mysqli=null;
 			$connect = new connect();
 			$connect->connecting();
 			$sql = "SELECT * FROM equipamentos ORDER BY idEquipamento_pk";			
-			global $result1;
-			$result1=null;
-			$result1 = $mysqli->query($sql);
-			return $result1;
+			$resultImpressoras = $mysqli->query($sql);
+			return $resultImpressoras;
 		}
 		
 		function selectContadores(){
+			global $resultContadores;
 			global $mysqli;
-			$mysqli=null;
 			$connect = new connect();
 			$connect->connecting();
 			$sql = "SELECT * FROM contadores ORDER BY dataContador";
-		
-			global $result2;
-			$result2=null;
-			$result2 = $mysqli->query($sql);
-			return $result2;
+			$resultContadores = $mysqli->query($sql);
+			return $resultContadores;
 		}
 		
 		function selectContadoresDetalhes($idEquipamento_fk){
+			global $resultContadoresDetalhes;
 			global $mysqli;
-			$mysqli=null;
 			$connect = new connect();
 			$connect->connecting();
 			$sql = "SELECT * FROM contadores where idEquipamento_fk='$idEquipamento_fk' order by dataContador ";	
-			global $result3;
-			$result3=null;
-			$result3 = $mysqli->query($sql);
-			return $result3;
+			$resultContadoresDetalhes = $mysqli->query($sql);
+			return $resultContadoresDetalhes;
 		}
 		
 		function selectImpressorasUnico($codigo){
+			global $resultImpressorasUnico;
 			global $mysqli;
-			$mysqli=null;
 			$connect = new connect();
 			$connect->connecting();
 			$sql = "SELECT * FROM equipamentos where idEquipamento_pk=$codigo ORDER BY equipIP";
-			global $result4;
-			$result4=null;
-			$result4 = $mysqli->query($sql);
-			return $result4;
+			$resultImpressorasUnico = $mysqli->query($sql);
+			return $resultImpressorasUnico;
 		}
 	}
 ?>

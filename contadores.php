@@ -1,28 +1,30 @@
 <TABLE BORDER=1 CELLSPACING=10>
 	<tr>
-	<?php $manter = new manter(); if ($manter->selectImpressoras()) while ($row5 = $result1->fetch_assoc()) {
+	<?php
+		$manter = new manter();
+		if ($manter->selectImpressoras()) while ($linhasImpressoras = $resultImpressoras->fetch_assoc()) {
 		global $idEquipamento_fk;
-		$idEquipamento_fk=$row5['idEquipamento_pk'];
+		$idEquipamento_fk=$linhasImpressoras['idEquipamento_pk'];
 	?>	
 		<td valign="top">
 			<TABLE BORDER=1 CELLSPACING=10>	
-				<?php if ($manter->selectImpressorasUnico($idEquipamento_fk)) while ($row1 = $result4->fetch_assoc()) { ?>
+				<?php if ($manter->selectImpressorasUnico($idEquipamento_fk)) while ($linhasImpressorasUnico = $resultImpressorasUnico->fetch_assoc()) { ?>
 				
 			<tr>
-				<td colspan=2><h3><?php echo $row1['equipNome']; ?></h3></td>
+				<td colspan=2><h3><?php echo $linhasImpressorasUnico['equipNome']; ?></h3></td>
 			</tr>
 			
-			<?php if ($manter->selectContadoresDetalhes($idEquipamento_fk)) while ($row3 = $result3->fetch_assoc()) { ?>
+			<?php if ($manter->selectContadoresDetalhes($idEquipamento_fk)) while ($linhasContadoresDetalhes = $resultContadoresDetalhes->fetch_assoc()) { ?>
 			<tr>
-				<td><?=$row3['dataContador']?></td>
-				<td><?=$row3['contTotal']?></td>				
+				<td><?=$linhasContadoresDetalhes['dataContador']?></td>
+				<td><?=$linhasContadoresDetalhes['contTotal']?></td>				
 			</tr>
 			<?php } ?>
 			
 			<?php }	?>
-			
+
 			</table>
 		</td>
-	<?php } ?>	
+	<?php } ?>
 	</tr>
-</table>			
+</table> 
