@@ -1,83 +1,28 @@
-<?php include 'includes/includes.php'; ?>
-<html>
-	<head>
-		<title>IMPRESSORAS</title>
-	</head>
-	
-	<body>
-	
-	<TABLE BORDER=1 CELLSPACING=10>
-		<tr>
-			<?php $manter = new manter(); if ($manter->selectImpressoras()) while ($row = $result->fetch_assoc()) { ?>
-				<td colspan=2><h3><?php echo $row['equipNome']; ?></h3></td>
-			<?php }	?>
-		</tr>
-		
-		<?php $manter = new manter();
-			if ($manter->selectContadores()) while ($row = $result->fetch_assoc()) {
-				$idEquipamento_fk=1;
-				$dataContador=$row['dataContador'];
-		?>
-		
-		<tr>
-			<?php if ($manter->selectContadoresDetalhes($idEquipamento_fk, $dataContador)) while ($row = $result->fetch_assoc()) { ?>
-				<td><?=$row['dataContador']?></td>
-				<td><?=$row['contTotal']?></td>
-			<?php $contaPrinters++; }?>	
-			
-			<?php if ($manter->selectContadoresDetalhes($idEquipamento_fk, $dataContador)) while ($row = $result->fetch_assoc()) { ?>
-				<td><?=$row['dataContador']?></td>
-				<td><?=$row['contTotal']?></td>
-			<?php $contaPrinters++; } ?>	
+<TABLE BORDER=1 CELLSPACING=10>
+	<tr>
+	<?php $manter = new manter(); if ($manter->selectImpressoras()) while ($row5 = $result1->fetch_assoc()) {
+		global $idEquipamento_fk;
+		$idEquipamento_fk=$row5['idEquipamento_pk'];
+	?>	
+		<td valign="top">
+			<TABLE BORDER=1 CELLSPACING=10>	
+				<?php if ($manter->selectImpressorasUnico($idEquipamento_fk)) while ($row1 = $result4->fetch_assoc()) { ?>
 				
-			<?php if ($manter->selectContadoresDetalhes($idEquipamento_fk, $dataContador)) while ($row = $result->fetch_assoc()) { ?>
-				<td><?=$row['dataContador']?></td>
-				<td><?=$row['contTotal']?></td>
-			<?php $contaPrinters++; } ?>	
-	
-			<?php if ($manter->selectContadoresDetalhes($idEquipamento_fk, $dataContador)) while ($row = $result->fetch_assoc()) { ?>
-				<td><?=$row['dataContador']?></td>
-				<td><?=$row['contTotal']?></td>
-			<?php $contaPrinters++; } ?>	
-			
-		</tr>
-		
-		<?php } $result->close(); $mysqli->close();	?>	
-		
-	</table>
-	
-	
-	
-	
-		<TABLE BORDER=0 CELLSPACING=0>
 			<tr>
-				<td>
-					<label for="txtListar"> &nbspNome </label>
-				</td>
-				<td colspan=3>
-					<label for="txtListar" > &nbspIP </label>
-				</td>
+				<td colspan=2><h3><?php echo $row1['equipNome']; ?></h3></td>
 			</tr>
 			
-		<?php $manter = new manter(); if ($manter->selectImpressoras()) while ($row = $result->fetch_assoc()) { ?>
-		
-		<form action="cadastro.php?codigoGet=<?php echo $row['idEquipamento_pk']; ?>&changed=<?php echo $row['idEquipamento_pk']; ?>" method="post">	
+			<?php if ($manter->selectContadoresDetalhes($idEquipamento_fk)) while ($row3 = $result3->fetch_assoc()) { ?>
 			<tr>
-				<td align='center'>
-					<input type="text" name="nome" style="width: 200" value="<?php echo $row['equipNome']; ?>"/>
-				</td>
-				<td align='center'>
-					<input type="text" name="ip" style="width: 200" value="<?php echo $row['equipIP']; ?>"/>
-				</td>
-				<td align='center'>
-					<button type="submit" name="acao" class="button" value="alterar"><span>Alterar</span></button>
-				</td>
-				<td align='center'>
-					<button type="submit" name="acao" class="button" value="excluir"><span>Excluir</span></button>
-				</td>
+				<td><?=$row3['dataContador']?></td>
+				<td><?=$row3['contTotal']?></td>				
 			</tr>
-		</form>
-		<?php } $result->close(); $mysqli->close();	?>
-		</table>
-	</body>
-</html>
+			<?php } ?>
+			
+			<?php }	?>
+			
+			</table>
+		</td>
+	<?php } ?>	
+	</tr>
+</table>			

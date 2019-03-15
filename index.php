@@ -1,4 +1,5 @@
 <?php include 'includes/includes.php'; ?>
+
 <html>
 	<head>
 		<title>~IMPRESSORAS</title>
@@ -17,7 +18,10 @@
 			</td>
 			<td>
 				<button type="submit" name="action" value="salva_cont" class="button"><span>Salvar Contadores</span></button>
-			</td>										
+			</td>
+			<td>
+				<button type="submit" name="action" value="contadores" class="button"><span>Contadores</span></button>
+			</td>			
 		</tr>
 	</table>
 	</form>	
@@ -34,6 +38,9 @@
 			
 			if($_GET['action']=="cadastro"){
 				include 'cadastro.php';
+			}
+			if($_GET['action']=="contadores"){
+				include 'contadores.php';
 			}
 		} else {
 			include 'bemvindo.php';

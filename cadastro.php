@@ -35,7 +35,7 @@
 				</td>
 			</tr>
 			
-		<?php $manter = new manter(); if ($manter->selectImpressoras()) while ($row = $result->fetch_assoc()) { ?>
+		<?php $manter = new manter(); if ($manter->selectImpressoras()) while ($row = $result1->fetch_assoc()) { ?>
 		
 		<form action="index.php?action=cadastro&codigoGet=<?=$row['idEquipamento_pk']; ?>&changed=<?=$row['idEquipamento_pk']; ?>" method="post">	
 			<tr>
@@ -53,5 +53,5 @@
 				</td>
 			</tr>
 		</form>
-		<?php } $result->close(); $mysqli->close();	?>
+		<?php } $result1->close(); $mysqli->close();	?>
 		</table>
